@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #2d3e44;
+}
+
+/* marquee text */
+.marquee {
+  margin-top: 4rem;
+  padding: 4px 0;
+  min-width: 100%;
+  background-color: #afffca;
+  color: black;
+  --gap: 1rem;
+  width: 500px;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__content {
+  min-width: 100%;
+  font-size: 40px;
+  animation: scroll 8s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+/* menu */
+.container {
+  overflow: hidden;
+  position: relative;
+}
+.container-nav {
+  height: 100%;
+  width: 100%;
+  align-items: start;
+  display: flex;
+}
+.container-nav ul {
+  padding-top: 60px;
+  width: 60%;
+  flex-grow: 2;
+  font-size: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 30px;
+}
+.container-nav ul li {
+  text-decoration: underline transparent 2px;
+  transition: text-decoration 0.5s ease-in-out;
+}
+.container-nav ul li:hover {
+  opacity: 1;
+  text-decoration: #afffca underline 2px;
+}
+.container-menu {
+  padding: 40px;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 50%;
+  transition: all 2sec linear;
+  transform: translateX(100%);
+  background-color: #2d3e44;
+  border-left: #afffca solid 1px;
+}
+.slide-in {
+  animation: slide-in 0.5s forwards;
+}
+.slide-out {
+  transform: translateX(100%);
+  animation: slide-out 0.5s forwards;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+/* background image container */
+.container-1 {
+  padding: 40px;
+  height: 800px;
+  width: 100%;
+  background: url("enginer2.png");
+  background-size: cover;
+  background-position: center;
+}
+/* about section */
+.about {
+  align-items: center;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 50%;
+  font-size: 50px;
+  color: white;
+}
+
+/* button */
+button {
+  color: white;
+  font-size: 20px;
+  border: solid white 1px;
+  border-radius: 20%;
+
+  padding: 20px;
+  background-color: transparent;
+
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  transform: scale(1.1);
+}
+/* navbar */
+.menu {
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+  font-size: 25px;
+  color: white;
+  transition: color 0.5s ease-in-out;
+}
+.menu:hover {
+  color: #afffca;
+}
+.underline {
+  text-decoration: underline #afffca 2px;
+}
