@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu");
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu";
+  overflow: hidden;
+}
+body {
+  margin: 0;
+}
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.xbox,
+.playstation {
+  background-color: pink;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: width 1s ease;
+}
+.xbox {
+  color: white;
+  background-image: url("./xbox.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.playstation {
+  background-image: url("./playstation.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button {
+  font-size: 1rem;
+  padding: 12px;
+  background-color: transparent;
+}
+.playstation button {
+  color: black;
+  font-weight: bold;
+  border: black 2px solid;
+}
+.xbox button {
+  color: white;
+  font-weight: bold;
+  border: white 2px solid;
+}
+.xbox:hover,
+.playstation:hover {
+  width: 80%;
+}
+@media screen and (max-width: 800px) {
+  .xbox,
+  .playstation {
+    font-size: 1.1rem;
+  }
+  btn {
+    font-size: 0.7rem;
+    padding: 6px;
+  }
+}
