@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto");
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+h1 {
+  margin-bottom: 4rem;
+}
+body {
+  background-color: rgb(65, 105, 225);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  color: rgb(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0;
+  gap: 3rem;
+}
+.form-control {
+  position: relative;
+  height: 6rem;
+}
+input {
+  width: 10rem;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+}
+input:focus {
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+label {
+  position: absolute;
+  bottom: 2rem;
+  color: white;
+  display: flex;
+  font-size: 0.8rem;
+}
+p,
+a {
+  font-size: 1rem;
+}
+a {
+  color: rgb(135, 206, 250);
+}
+button {
+  color: black;
+  background-color: rgb(135, 206, 250);
+  border: 0;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+input:focus {
+  outline: none;
+}
+span {
+  font-size: 18px;
+  transition: 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  display: inline-block;
+}
+input:focus + label span {
+  color: rgb(135, 206, 250);
+  transform: translateY(-6rem);
+}
