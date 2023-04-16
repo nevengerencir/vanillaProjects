@@ -1,17 +1,22 @@
 package main.controllers;
 
+import main.model.Person;
+import main.services.MarketplaceService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import repositories.MarketplaceRepository;
 
 @RestController
 public class MainController {
-    private final MarketplaceRepository marketplaceRepository;
-
-    public MainController(MarketplaceRepository marketplaceRepository) {
-        this.marketplaceRepository = marketplaceRepository;
+    public MainController(MarketplaceService marketplaceService) {
+        this.marketplaceService = marketplaceService;
     }
 
+    private final MarketplaceService marketplaceService;
     @PostMapping("/person")
+    public void addPerson(@RequestBody Person person){
+        marketplaceService.AddPerson(person);
+
+    }
 
 }
