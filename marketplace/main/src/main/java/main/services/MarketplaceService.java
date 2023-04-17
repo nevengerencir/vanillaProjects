@@ -12,10 +12,4 @@ public class MarketplaceService {
         this.marketplaceRepository = marketplaceRepository;
     }
 
-    public void AddPerson(Person person){
-        marketplaceRepository.addPerson(person.getName());
-        for(Fruit fruit : person.getFruits()){
-            marketplaceRepository.addFruit(fruit.getName(), person.getName());
-        }
-    }
 }
