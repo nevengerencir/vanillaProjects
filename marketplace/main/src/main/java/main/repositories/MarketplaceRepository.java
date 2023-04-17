@@ -14,16 +14,17 @@ import java.util.List;
 public interface MarketplaceRepository extends CrudRepository<Person, Long> {
     @Modifying
     @Query("INSERT INTO people (name) values (:name)")
-    public void addPerson(String name);
+    public Long addPerson(String name);
 
     @Modifying
-    @Query("INSERT INTO fruit (name, person_id) values (:fruit,:person)")
+    @Query("INSERT INTO fruits (name, person_id) values (:fruit,:person)")
     public void addFruit(@Param("fruit") String fruit, @Param("person") Long person);
 
-    default void AddPerson(Person person) {
-        addPerson(person.getName());
+    default void SavePersonWithFruits(Person person) {
+        Long personId = addPerson(person.getName());
+
         for (Fruit fruit : person.getFruits()) {
-            addFruit(fruit.getName(), person.getId());
+            addFruit(fruit.getName(), personId);
         }
     }
 
