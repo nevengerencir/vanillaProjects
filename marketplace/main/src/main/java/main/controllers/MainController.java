@@ -2,9 +2,8 @@ package main.controllers;
 
 import main.model.Person;
 import main.repositories.MarketplaceRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MainController {
@@ -21,5 +20,9 @@ public class MainController {
         marketplaceRepository.SavePersonWithFruits(person);
 
     }
+    @GetMapping("/person")
+    public Person findPersonWithFruit(){
+        return marketplaceRepository.findPersonById();
+    };
 
 }

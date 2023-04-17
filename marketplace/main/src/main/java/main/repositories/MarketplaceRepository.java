@@ -28,15 +28,15 @@ public interface MarketplaceRepository extends CrudRepository<Person, Long> {
         }
     }
 
-    @Query("SELECT * FROM people WHERE id = :id")
-    Person findPersonById(@Param("id") Long id);
+    @Query("SELECT id, name FROM people WHERE id = 1")
+    Person findPersonById();
 
-    @Query("SELECT * FROM fruit WHERE id = :personId")
-    List<Fruit> findFruitByPersonId(@Param("personId") Long personId);
+    @Query("SELECT * FROM fruits WHERE person_id = 1")
+    List<Fruit> findFruitByPersonId();
 
-    default Person findPersonWithFruitId(@Param("id") Long id){
-        Person person = findPersonById(id);
-        List <Fruit> fruits = findFruitByPersonId(id);
+    default Person findPersonWithFruitId( ){
+        Person person = findPersonById();
+        List <Fruit> fruits = findFruitByPersonId();
         person.setFruits(fruits);
         return person;
     }

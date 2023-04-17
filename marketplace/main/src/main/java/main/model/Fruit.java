@@ -1,20 +1,17 @@
 package main.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
-@Table("fruits")
+
 public class Fruit {
-    @Id
     private Long id;
     private String name;
-    private Long personId;
+    private Long people_key;
 
     public Fruit() {}
 
     public Fruit(String name, Long personId) {
         this.name = name;
-        this.personId = personId;
+        this.people_key = personId;
     }
 
     public Long getId() {
@@ -25,7 +22,11 @@ public class Fruit {
         return name;
     }
 
-    public Long getPersonId() {
-        return personId;
+    public Long getPeople_key() {
+        return people_key;
+    }
+
+    public void setPeople_key(Long people_key) {
+        this.people_key = people_key;
     }
 }
