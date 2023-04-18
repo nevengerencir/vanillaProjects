@@ -1,28 +1,36 @@
 package main.controllers;
 
-import main.model.Person;
-import main.repositories.MarketplaceRepository;
-import org.springframework.data.repository.query.Param;
+import main.model.Fruit;
+import main.model.People;
+import main.services.FruitService;
+import main.services.PeopleService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class MainController {
+    private final FruitService fruitService;
+    private final PeopleService peopleService;
 
-
-    private final MarketplaceRepository marketplaceRepository;
-
-    public MainController(MarketplaceRepository marketplaceRepository) {
-        this.marketplaceRepository = marketplaceRepository;
+    public MainController(FruitService fruitService, PeopleService peopleService) {
+        this.fruitService = fruitService;
+        this.peopleService = peopleService;
     }
 
-    @PostMapping("/person")
-    public void addPerson(@RequestBody Person person){
-        marketplaceRepository.SavePersonWithFruits(person);
-
+    @GetMapping("/fruits")
+    public Iterable<Fruit> findAllFruit(){
+    return fruitService.findAllFruit();}
+    @GetMapping("/fruit")
+    public Optional<Fruit> findFruit(@RequestParam Long id){
+        return fruitService.findFruit(id);}
+    @GetMapping("/peoples")
+    public Iterable<People> findAllPeople(){
+        return peopleService.findAllPeople();
     }
-    @GetMapping("/person")
-    public Person findPersonWithFruit(){
-        return marketplaceRepository.findPersonById();
-    };
+    @GetMapping("/people")
+    public Optional<People> findPeople(@RequestParam Long id){
+        return peopleService.findPeople(id);
+    }
 
 }
