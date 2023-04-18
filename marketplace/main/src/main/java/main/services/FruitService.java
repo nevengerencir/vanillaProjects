@@ -4,6 +4,7 @@ import main.model.Fruit;
 import main.repositories.FruitsRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 
@@ -19,5 +20,9 @@ public class FruitService {
 
     public Optional<Fruit> findFruit(Long id){
         return fruitsRepository.findById(id);
+    }
+
+    public List<Fruit> findFruitWithPeopleId(Long id){
+        return fruitsRepository.findFruitsWithPeopleId(id);
     }
 }

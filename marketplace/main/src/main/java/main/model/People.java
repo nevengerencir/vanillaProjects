@@ -2,6 +2,7 @@ package main.model;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 import java.util.List;
 
@@ -9,7 +10,8 @@ public class People {
 @Id
     private Long id;
     private String name;
-    private List<Fruit> fruits;
+    @Transient private List<Fruit> fruits;
+
 
     public List<Fruit> getFruits() {
         return fruits;

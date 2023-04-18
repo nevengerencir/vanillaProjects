@@ -2,13 +2,22 @@ package main.model;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("fruits")
 public class Fruit {
+    @Override
+    public String toString() {
+        return "Fruit{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     @Id
-    private Long id;
+    @Transient private Long id;
     private String name;
+    @Transient
     private Long people_id;
 
     public Long getId() {
