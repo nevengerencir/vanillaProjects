@@ -1,10 +1,23 @@
 package main.model;
 
 
-public class People {
+import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
+public class People {
+@Id
     private Long id;
     private String name;
+    private List<Fruit> fruits;
+
+    public List<Fruit> getFruits() {
+        return fruits;
+    }
+
+    public void setFruits(List<Fruit> fruits) {
+        this.fruits = fruits;
+    }
 
     public Long getId() {
         return id;

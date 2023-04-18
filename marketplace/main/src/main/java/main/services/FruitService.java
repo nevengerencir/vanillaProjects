@@ -1,24 +1,23 @@
 package main.services;
 
 import main.model.Fruit;
-import main.repositories.FruitRepository;
+import main.repositories.FruitsRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 @Service
 
 public class FruitService {
-    private final FruitRepository fruitRepository;
+    private final FruitsRepository fruitsRepository;
 
-    public FruitService(FruitRepository fruitRepository) {
-        this.fruitRepository = fruitRepository;
+    public FruitService(FruitsRepository fruitsRepository) {
+        this.fruitsRepository = fruitsRepository;
     }
     public Iterable<Fruit> findAllFruit(){
-        return fruitRepository.findAll();
+        return fruitsRepository.findAll();
     }
 
     public Optional<Fruit> findFruit(Long id){
-        return fruitRepository.findById(id);
+        return fruitsRepository.findById(id);
     }
 }

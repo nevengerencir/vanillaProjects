@@ -23,6 +23,7 @@ public class MainController {
     return fruitService.findAllFruit();}
     @GetMapping("/fruit")
     public Optional<Fruit> findFruit(@RequestParam Long id){
+        System.out.println(id);
         return fruitService.findFruit(id);}
     @GetMapping("/peoples")
     public Iterable<People> findAllPeople(){
@@ -30,6 +31,7 @@ public class MainController {
     }
     @GetMapping("/people")
     public Optional<People> findPeople(@RequestParam Long id){
+        System.out.println(id);
         return peopleService.findPeople(id);
     }
 
